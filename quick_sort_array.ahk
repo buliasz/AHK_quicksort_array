@@ -1,8 +1,9 @@
-; arr - Array of any type to sort. It should be continuous (have all indexes
-; 		from MinIndex() to MaxIndex().
+; arr - Array of any type to sort. Indexes should be continuous (have values under all
+; 	indexes from the first used, to the last used).
 ; cmpFunc - <optional> Comparison function, as normaly takes two arguments (of
-;			the same type as array elements). It should return 0 on equal,
-;			>0 on first greater than second, <0 on first less than second.
+;	the same type as array elements). It should return 0 on equal,
+;	>0 on first greater than second, <0 on first less than second.
+;	You can exchange it to make sorting in descending order.
 ; If no cmpFunc is passed, simple comparison a > b is performed.
 QuickSort(arr, cmpFunc:="")
 {
@@ -14,22 +15,22 @@ QuickSort(arr, cmpFunc:="")
 
 QuickSortRange(arr, beginIndex, endIndex, cmpFunc)
 {
-    if (beginIndex >= endIndex) {
-        return
-    }
+	if (beginIndex >= endIndex) {
+		return
+	}
 
-    part := QuickSortPartition(arr, beginIndex, endIndex, cmpFunc)
-    QuickSortRange(arr, beginIndex, part - 1, cmpFunc)
-    QuickSortRange(arr, part + 1, endIndex, cmpFunc)
+	part := QuickSortPartition(arr, beginIndex, endIndex, cmpFunc)
+	QuickSortRange(arr, beginIndex, part - 1, cmpFunc)
+	QuickSortRange(arr, part + 1, endIndex, cmpFunc)
 
 	return arr
 }
 
 QuickSortPartition(arr, beginIndex, endIndex, cmpFunc)
 {
-    leftIndex := beginIndex
-    rightIndex := endIndex
-    middleIndex := (leftIndex + rightIndex) // 2
+	leftIndex := beginIndex
+	rightIndex := endIndex
+	middleIndex := (leftIndex + rightIndex) // 2
 	pivotValue := arr[middleIndex]
 
 	temp := arr[leftIndex]
@@ -45,13 +46,12 @@ QuickSortPartition(arr, beginIndex, endIndex, cmpFunc)
 			rightIndex -= 1
 		}
 
-        if(leftIndex < rightIndex)
-        {
-            temp := arr[rightIndex]
-            arr[rightIndex] := arr[leftIndex]
-            arr[leftIndex] := temp
-        }
-    }
+		if(leftIndex < rightIndex) {
+			temp := arr[rightIndex]
+			arr[rightIndex] := arr[leftIndex]
+			arr[leftIndex] := temp
+		}
+	}
 
 	temp := arr[leftIndex - 1]
 	arr[leftIndex - 1] := arr[beginIndex]
