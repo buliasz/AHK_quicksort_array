@@ -1,4 +1,4 @@
-; arr - Array of any type to sort. Indexes should be continuous (have values under all
+; arr - Array of any type to sort. Indexes should be consecutive whole numbers (have values under all
 ; 	indexes from the first used, to the last used).
 ; cmpFunc - <optional> Comparison function, as normaly takes two arguments (of
 ;	the same type as array elements). It should return 0 on equal,
