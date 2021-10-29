@@ -14,14 +14,14 @@ sortedStringArray := QuickSort(stringArray, StrCompare)	; AHKv2 built in StrComp
 MsgBox(Array2String(sortedStringArray))
 
 
-; Array of objects sorted by integer property example
+; Array of objects sorted by property of integer type
 
 objectArray := [ Apple(19), Apple(3), Apple(17), Apple(1), Apple(21), Apple(123456), Apple(-221) ]
 sortedStringArray := QuickSortByProperty(objectArray, "size")
 MsgBox(Array2String(sortedStringArray))
 
 
-; Custom comparison used for sorting sorexample
+; Example of how to use custom comparison function for sorting
 
 rectangleArray := [ Rectangle(7, 1), Rectangle(1, 122), Rectangle(532, 0.0009), Rectangle(17, -1), Rectangle(-12, -12) ]
 
@@ -33,7 +33,7 @@ sortedRectangleArray := QuickSort(rectangleArray, CompareSurface)
 MsgBox(Array2String(sortedRectangleArray))
 
 
-; Testing helper code part
+; Testing helper codes part
 
 Array2String(arr) {
 	output := "[ "
